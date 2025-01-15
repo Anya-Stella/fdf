@@ -6,7 +6,7 @@
 #    By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 15:01:07 by tishihar          #+#    #+#              #
-#    Updated: 2025/01/15 18:25:37 by tishihar         ###   ########.fr        #
+#    Updated: 2025/01/15 19:25:20 by tishihar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,7 @@ dev: CFLAGS += $(DEVFLAGS)
 dev: LDFLAGS += $(DEVFLAGS)
 dev: all
 
-# use: make val ARGS="1 2 3" or make val
+# use: make run ARGS="1 2 3" or make run
 run: $(NAME)
 	$(VALGRIND) $(VALGRINDFLAGS) ./$(NAME) $(ARGS)
 

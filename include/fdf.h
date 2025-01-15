@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:59:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/15 19:01:45 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/15 19:27:24 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 // include
 # include "libft.h"
-# include "stdbool.h"
+# include "minilibx-linux/mlx.h"
+// # include "stdbool.h"
 
 
 
