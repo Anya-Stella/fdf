@@ -6,11 +6,26 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/15 18:45:22 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/16 12:22:59 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char **argv)
+#include "fdf.h"
+
+
+
+
+
+
+int	main()
 {
+	int		fd;
+	char	*line;
+
+	// ファイルを開く
+	fd = open("../../test_maps/42.fdf", O_RDONLY);
+
+
+
 
 }

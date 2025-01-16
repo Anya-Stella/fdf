@@ -6,7 +6,7 @@
 #    By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 15:01:07 by tishihar          #+#    #+#              #
-#    Updated: 2025/01/15 19:25:20 by tishihar         ###   ########.fr        #
+#    Updated: 2025/01/16 12:29:44 by tishihar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,9 +42,13 @@ OBJ_DIR := bin
 LIBFT_DIR := libft
 LIBFT_INC_DIR := $(LIBFT_DIR)
 
+# gnl
+GNL_DIR := get-next-line
+GNL_INC_DIR := $(GNL_DIR)
+
 # include
 INC_DIR := include
-INCLUDES := -I$(INC_DIR) -I$(LIBFT_INC_DIR)
+INCLUDES := -I$(INC_DIR) -I$(LIBFT_INC_DIR) -I$(GNL_INC_DIR)
 #===============================================================================
 #                              ソースファイル設定
 #===============================================================================
