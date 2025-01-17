@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_matrix.c                                      :+:      :+:    :+:   */
+/*   init_width_height.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 16:47:13 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/17 12:25:19 by tishihar         ###   ########.fr       */
+/*   Created: 2025/01/17 17:26:29 by tishihar          #+#    #+#             */
+/*   Updated: 2025/01/17 17:32:26 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static	int	count_words(char *str, char c)
 	return (len);
 }
 
-static	bool	set_height(char *file_name, int *height)
+bool	set_height(char *file_name, int *height)
 {
 	int		fd;
 	char	*line;
@@ -58,7 +58,7 @@ static	bool	set_height(char *file_name, int *height)
 	return (true);
 }
 
-static	bool	set_width(char *file_name, int *width)
+bool	set_width(char *file_name, int *width)
 {
 	int		fd;
 	char	*line;
@@ -73,28 +73,3 @@ static	bool	set_width(char *file_name, int *width)
 	return (true);
 }
 
-void	init_data(t_fdf *data_)
-{
-	data_->height = 0;
-	data_->width = 0;
-	data_->matrix = NULL;
-}
-
-void	init_matrix(char *file_name, t_fdf *data_)
-{
-	int	width;
-	int	height;
-	(void) *data_;
-
-	// get_height
-	set_height(file_name, &height);
-
-	// get_width
-	set_width(file_name, &width);
-
-
-	//set_matrix
-	printf("width: %d",width);
-	printf("height: %d",height);
-
-}
