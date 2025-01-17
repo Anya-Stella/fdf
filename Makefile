@@ -6,7 +6,7 @@
 #    By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 15:01:07 by tishihar          #+#    #+#              #
-#    Updated: 2025/01/16 14:24:52 by tishihar         ###   ########.fr        #
+#    Updated: 2025/01/17 12:26:33 by tishihar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,7 @@ INCLUDES := -I$(INC_DIR) -I$(LIBFT_INC_DIR) -I$(MLX_INC_DIR)
 SRCS := \
 	get_next_line.c \
 	get_next_line_utils.c \
+	init_object.c \
     main.c \
 
 # replace object (.c → .o)

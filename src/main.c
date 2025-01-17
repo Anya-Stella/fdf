@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/16 15:39:14 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/17 12:29:20 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,20 @@
 
 
 
-
+// ---注釈---
+// 1: .FDFファイルに入ってくる最大行。最大列は、int内にしないとオーバーフロー起きる
 int	main()
 {
-	int		fd;
-	char	*line;
+	t_fdf		data;
 
-	// ファイルを開く
-	fd = open("../test_maps/42.fdf", O_RDONLY);
-	if (fd == -1)
-	{
-		perror("open failed.");
-		return (1);
-	}
-	
-	// 初期化して二次元配列に格納する
-	// line : 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 \0 \n \0
-	while (!!(line = get_next_line(fd)))
-	{
-		
+	// 初期化：ファイル名をつっこんでmatrixを初期化する
+	init_data(&data);
+	init_matrix("../test_maps/42.fdf", &data);
 	
 
-		free(line);
-	}
 
-	close(fd);
+
+	
 	return (0);
 
 
