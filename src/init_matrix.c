@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:28:20 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/17 20:19:58 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/20 13:00:16 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,28 @@ static	int	**create_matrix(int width, int height)
 	return (matrix);
 }
 
+// arrayはrowの先頭ぽいんた
+static	void	fill_array(char *line, int *col, int width)
+{
+	char	**nums;
+	char	**temp;
 
+	nums = ft_split(line, " ");// " "123", "45", "834" "
+	if (!nums)
+		return ;
 
+	temp = nums;
+	while (width--)// *temp = "123"
+	{
+		*col = ft_atoi(*temp);
+		free(*temp);
+
+		col++;
+		temp++;
+	}
+
+	free(nums);
+}
 
 bool	set_matrix(char *file_name, t_fdf *data_)
 {
@@ -87,11 +107,13 @@ bool	set_matrix(char *file_name, t_fdf *data_)
 	
 	while (!!(line = get_next_line(fd)))
 	{
-		// この段階でline = "0 10 2 34  4  3 3 3 3  \0 \n \0"
-		// 入力：lineと書き込むためにmatrixのポインタを渡す
-
-		// 1: 配列に書き込む
-		//２：
-		fill_array(line, &matrix);
+		fill_array(line, *matrix_dummy, data_->width);
+		free(line);
+		
+		matrix_dummy++;
 	}
+	close(fd);
+
+	data_->matrix = matrix;
+	return (true);
 }
