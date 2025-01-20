@@ -6,17 +6,11 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:47:13 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/20 13:30:47 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:39:22 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-
-
-
-
-
 
 void	init_data(t_fdf *data_)
 {
@@ -25,40 +19,20 @@ void	init_data(t_fdf *data_)
 	data_->matrix = NULL;
 }
 
-
-// void	fill_column(char *line, int *col)
-// {
-// 	int	*arr;
-// 	int	*temp;
-// 	int	*temp2;
-
-// 	arr = ft_split(line, " ");// ""123", "45564", "8475", ..."
-// 	if (!arr)
-// 		return ;
-// 	temp = arr;
-// 	temp2 = arr;
-// 	while (*temp)
-// 	{
-// 		*col = ft_atoi(temp);
-// 		col++;
-// 		temp++;
-// 	}
-// 	while (*temp2)
-// 	{
-// 		free(*temp2);
-// 		temp2++;
-// 	}
-// 	free(arr);
-// }
-
-
-void	set_data(char *file_name, t_fdf *data_)
+bool	set_data(char *file_name, t_fdf *data_)
 {
-	set_height(file_name, &(data_->height));
-	set_width(file_name, &(data_->width));
-	set_matrix(file_name, data_);
+	if (set_height(file_name, &(data_->height)))
+		return (false);
+	if (set_width(file_name, &(data_->width)))
+		return (false);
+	if (set_matrix(file_name, data_))
+		return (false);
+
+	return (true);
 
 	// 確認
-	printZ(data_->matrix, data_->height, data_->width);
+	// printZ(data_->matrix, data_->height, data_->width);
+
+	// vacuum_matrix(data_->matrix);
 	
 }

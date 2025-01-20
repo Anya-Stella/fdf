@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/20 12:49:28 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/20 13:41:17 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	main()
 	// 初期化：ファイル名をつっこんでmatrixを初期化する
 	init_data(&data);
 	set_data("../test_maps/42.fdf", &data);
+
+	
 	
 
 

@@ -6,23 +6,11 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:28:20 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/20 13:11:11 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:34:46 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-// matrixを掃除する
-// void	vacuum_matrix(int **matrix)
-// {
-// 	int**	start;
-
-// 	start = matrix;
-// 	while (*(matrix++))
-// 		free(*matrix);
-// 	free(start);
-// }
-
 
 // create_matrix関数を中断する場合にフリーする関数
 static	void	interruption_create_matrix(int allocated, int **matrix)
@@ -116,4 +104,18 @@ bool	set_matrix(char *file_name, t_fdf *data_)
 
 	data_->matrix = matrix;
 	return (true);
+}
+
+// matrixをすべて掃除する
+void	vacuum_matrix(int **matrix)
+{
+	int**	origin;
+
+	origin = matrix;
+	while (*matrix)
+	{
+		free(*matrix);
+		matrix++;
+	}
+	free(origin);
 }
