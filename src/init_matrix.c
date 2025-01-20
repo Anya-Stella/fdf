@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:28:20 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/20 14:49:46 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:49:50 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,12 @@ bool	set_matrix(char *file_name, t_fdf *data_)
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
 		return (false);
-	while (!!(line = get_next_line(fd)))
+	line = get_next_line(fd);
+	while (line)
 	{
 		fill_array(line, *matrix_dummy, data_->width);
 		free(line);
+		line = get_next_line(fd);
 		matrix_dummy++;
 	}
 	close(fd);

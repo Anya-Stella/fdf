@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/20 16:45:50 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:51:28 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	main()
 	init_data(&data);
 	// set_data("../test_maps/10-2.fdf", &data);
 	// set_data("../test_maps/100-6.fdf", &data);
-	// set_data("../test_maps/42.fdf", &data);
+	set_data("../test_maps/42.fdf", &data);
 	// set_data("../test_maps/elem-col.fdf", &data);
-	set_data("../test_maps/basictest.fdf", &data);
+	// set_data("../test_maps/basictest.fdf", &data);
 
 	// set_data("../test_maps/elem-fract.fdf", &data);------------not
 	
