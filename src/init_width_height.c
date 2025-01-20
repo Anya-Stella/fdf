@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:26:29 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/20 14:52:24 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:43:27 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,12 @@ bool	set_height(char *file_name, int *height)
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
 		return (false);
-	while (!!(line = get_next_line(fd)))
+	line = get_next_line(fd);
+	while (line)
 	{
 		count++;
 		free(line);
+		line = get_next_line(fd);
 	}
 	*height = count;
 	close(fd);
