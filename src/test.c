@@ -6,25 +6,27 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:15:20 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/20 13:35:29 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:55:06 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void printZ(int **matrix, int height, int width)
+void	print_z(int **matrix, int height, int width)
 {
-    int row_index = 0;
+	int	row_index;
+	int	col_index;
 
-    while (row_index < height)
-    {
-        int col_index = 0;
-        while (col_index < width)
-        {
-            printf("%d ", matrix[row_index][col_index]);
-            col_index++;
-        }
-        printf("\n");
-        row_index++;
-    }
+	row_index = 0;
+	while (row_index < height)
+	{
+		col_index = 0;
+		while (col_index < width)
+		{
+			printf("%d ", matrix[row_index][col_index]);
+			col_index++;
+		}
+		printf("\n");
+		row_index++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:59:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/20 14:40:57 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:54:11 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ void	vacuum_matrix(int **matrix);
 int	main();
 
 // test
-void printZ(int **matrix, int height, int width);
+void print_z(int **matrix, int height, int width);
 
 #endif

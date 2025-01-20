@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:26:29 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/17 17:32:26 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:52:24 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static	int	count_words(char *str, char c)
 	char	**temp2;
 	int		len;
 
-	arr = ft_split(str, c);// ""123""467""
+	arr = ft_split(str, c);
 	if (!arr)
 		return (0);
 	len = 0;
@@ -27,14 +27,12 @@ static	int	count_words(char *str, char c)
 	temp2 = arr;
 	while (*(temp++))
 		len++;
-	// バキューム////////// 
 	while (*temp2)
 	{
 		free(*temp2);
 		temp2++;
 	}
 	free(arr);
-	//////////////////
 	return (len);
 }
 
@@ -43,12 +41,12 @@ bool	set_height(char *file_name, int *height)
 	int		fd;
 	char	*line;
 	int		count;
-	
+
 	count = 0;
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
 		return (false);
-	while(!!(line = get_next_line(fd)))
+	while (!!(line = get_next_line(fd)))
 	{
 		count++;
 		free(line);
@@ -72,4 +70,3 @@ bool	set_width(char *file_name, int *width)
 	close(fd);
 	return (true);
 }
-
