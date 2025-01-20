@@ -6,34 +6,35 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:26:29 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/20 15:43:27 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/20 21:04:56 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static	int	count_words(char *str, char c)
+// str上の要素の数
+static	bool is_delim(char c)
 {
-	char	**arr;
-	char	**temp;
-	char	**temp2;
-	int		len;
+	return (c ==' ' || c == '-' || c == '\n');
+}
 
-	arr = ft_split(str, c);
-	if (!arr)
-		return (0);
-	len = 0;
-	temp = arr;
-	temp2 = arr;
-	while (*(temp++))
-		len++;
-	while (*temp2)
+static	int	count_words(char *str, bool (*is_delim)(char c))
+{
+	int	count;
+	
+	count = 0;
+	while (*str)
 	{
-		free(*temp2);
-		temp2++;
+		if (*str && is_delim(*str))
+			str++;
+		else
+		{
+			count++;
+			while (*str && !is_delim(*str))
+				str++;
+		}
 	}
-	free(arr);
-	return (len);
+	return (count);
 }
 
 bool	set_height(char *file_name, int *height)
@@ -62,12 +63,23 @@ bool	set_width(char *file_name, int *width)
 {
 	int		fd;
 	char	*line;
+	int		width_origin;
+	int		width_temp;
 
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
 		return (false);
 	line = get_next_line(fd);
-	*width = count_words(line, ' ');
+	width_origin = count_words(line, is_delim);
+	while (line)
+	{
+		width_temp = count_words(line, is_delim);
+		free(line);
+		if (width_origin != width_temp)
+			return (false);
+		line = get_next_line(fd);
+	}
+	*width = width_origin;
 	free(line);
 	close(fd);
 	return (true);

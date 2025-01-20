@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:28:20 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/20 16:49:50 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/20 21:48:51 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,25 @@ static	int	**create_matrix(int width, int height)
 static	void	fill_array(char *line, int *col, int width)
 {
 	char	**nums;
+	char	**iter;
 	char	**temp;
 
 	nums = ft_split(line, ' ');
 	if (!nums)
 		return ;
+	iter = nums;
 	temp = nums;
-	while (width--)
+	while (width-- && *temp)
 	{
 		*col = ft_atoi(*temp);
-		free(*temp);
 		col++;
 		temp++;
 	}
+	while (*iter)
+    {
+        free(*iter);
+        iter++;
+    }
 	free(nums);
 }
 
