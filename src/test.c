@@ -1,0 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/20 13:15:20 by tishihar          #+#    #+#             */
+/*   Updated: 2025/01/20 13:35:29 by tishihar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "fdf.h"
+
+void printZ(int **matrix, int height, int width)
+{
+    int row_index = 0;
+
+    while (row_index < height)
+    {
+        int col_index = 0;
+        while (col_index < width)
+        {
+            printf("%d ", matrix[row_index][col_index]);
+            col_index++;
+        }
+        printf("\n");
+        row_index++;
+    }
+}

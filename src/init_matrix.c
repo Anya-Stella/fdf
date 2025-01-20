@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:28:20 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/20 13:00:16 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/20 13:11:11 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static	void	fill_array(char *line, int *col, int width)
 	char	**nums;
 	char	**temp;
 
-	nums = ft_split(line, " ");// " "123", "45", "834" "
+	nums = ft_split(line, ' ');// " "123", "45", "834" "
 	if (!nums)
 		return ;
 

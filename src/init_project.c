@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:47:13 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/17 20:06:18 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/20 13:30:47 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,11 @@ void	init_data(t_fdf *data_)
 
 void	set_data(char *file_name, t_fdf *data_)
 {
-
-	// init w/h
 	set_height(file_name, &(data_->height));
 	set_width(file_name, &(data_->width));
+	set_matrix(file_name, data_);
 
-
-
-
-
+	// 確認
+	printZ(data_->matrix, data_->height, data_->width);
+	
 }
