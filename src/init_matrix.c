@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:28:20 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/22 19:10:37 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/22 19:20:14 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,11 @@ static	bool	fill_array(char *line, int *col, int width)
 		temp++;
 	}
 	while (*iter)
-    {
-        free(*iter);
-        iter++;
-    }
-	free(nums);
+	{
+		free (*iter);
+		iter++;
+	}
+	free (nums);
 	return (true);
 }
 

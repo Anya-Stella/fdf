@@ -6,16 +6,16 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:26:29 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/22 17:35:23 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/22 19:19:13 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
 // str上の要素の数
-static	bool is_delim(char c)
+static	bool	is_delim(char c)
 {
-	return (c ==' ' || c == '-' || c == '\n');
+	return (c == ' ' || c == '-' || c == '\n');
 }
 
 static	int	count_words(char *str, bool (*is_delim)(char c))
@@ -47,8 +47,7 @@ static	int	caluculate_width(int fd)
 	char	*line;
 	int		width_origin;
 	int		width_temp;
-	
-	// 1行目の計算
+
 	line = get_next_line(fd);
 	width_origin = count_words(line, is_delim);
 	if (width_origin <= 0)
@@ -57,8 +56,6 @@ static	int	caluculate_width(int fd)
 			free(line);
 		return (-1);
 	}
-
-	// 2行目以降の一致
 	while (line)
 	{
 		width_temp = count_words(line, is_delim);
@@ -99,7 +96,7 @@ bool	set_width(char *file_name, int *width)
 
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
-		return (false);	
+		return (false);
 	width_temp = caluculate_width(fd);
 	if (width_temp <= 0)
 	{
