@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:28:20 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/22 18:56:23 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/22 19:10:37 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,26 +81,7 @@ static	bool	fill_array(char *line, int *col, int width)
 	return (true);
 }
 
-bool	set_matrix(char *file_name, t_fdf *data_)
-{
-	int		**matrix;
-	int		**matrix_dummy;
-	int		fd;
-	char	*line;
-
-	matrix = create_matrix(data_->width, data_->height);
-	if (!matrix)
-		return (false);
-	if (!fill_matrix(matrix, file_name, data_->width))
-	{
-		vacuum_matrix(matrix);
-		return (false);
-	}
-	data_->matrix = matrix;
-	return (true);
-}
-
-bool	fill_matrix(int **matrix, char *file_name, int width)
+static	bool	fill_matrix(int **matrix, char *file_name, int width)
 {
 	int		fd;
 	char	*line;
@@ -122,5 +103,21 @@ bool	fill_matrix(int **matrix, char *file_name, int width)
 		line = get_next_line(fd);
 	}
 	close(fd);
+	return (true);
+}
+
+bool	set_matrix(char *file_name, t_fdf *data_)
+{
+	int		**matrix;
+
+	matrix = create_matrix(data_->width, data_->height);
+	if (!matrix)
+		return (false);
+	if (!fill_matrix(matrix, file_name, data_->width))
+	{
+		vacuum_matrix(matrix);
+		return (false);
+	}
+	data_->matrix = matrix;
 	return (true);
 }

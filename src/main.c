@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/22 17:48:03 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/22 19:11:15 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main()
 	init_data(&data);
 	
 	// バリデーション&セットでーた
-	if (!validation_and_set_data("../test_maps/basictest.fdf", &data))
+	if (!validation_and_set_data("../test_maps/mars.fdf", &data))
 		return (1);
 		
 	// 確認用
