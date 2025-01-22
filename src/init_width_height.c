@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:26:29 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/20 21:04:56 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:27:03 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ static	bool is_delim(char c)
 static	int	count_words(char *str, bool (*is_delim)(char c))
 {
 	int	count;
-	
+
+	if (!str)
+		return (-1);
 	count = 0;
 	while (*str)
 	{
@@ -29,12 +31,43 @@ static	int	count_words(char *str, bool (*is_delim)(char c))
 			str++;
 		else
 		{
+			if (count == INT_MAX)
+				return (-1);
 			count++;
 			while (*str && !is_delim(*str))
 				str++;
 		}
 	}
 	return (count);
+}
+
+// fdの示すFDFファイルの横幅を返す。エラーの場合は−１を返す。
+static	int	caluculate_width(int fd)
+{
+	char	*line;
+	int		width_origin;
+	int		width_temp;
+	
+	// 1行目の計算
+	line = get_next_line(fd);
+	width_origin = count_words(line, is_delim);
+	if (width_origin <= 0)
+	{
+		if (line)
+			free(line);
+		return (-1);
+	}
+
+	// 2行目以降の一致
+	while (line)
+	{
+		width_temp = count_words(line, is_delim);
+		free(line);
+		if (width_origin != width_temp)
+			return (-1);
+		line = get_next_line(fd);
+	}
+	return (width_origin);
 }
 
 bool	set_height(char *file_name, int *height)
@@ -63,24 +96,18 @@ bool	set_width(char *file_name, int *width)
 {
 	int		fd;
 	char	*line;
-	int		width_origin;
 	int		width_temp;
 
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
-		return (false);
-	line = get_next_line(fd);
-	width_origin = count_words(line, is_delim);
-	while (line)
+		return (false);	
+	width_temp = caluculate_width(fd);
+	if (width_temp <= 0)
 	{
-		width_temp = count_words(line, is_delim);
-		free(line);
-		if (width_origin != width_temp)
-			return (false);
-		line = get_next_line(fd);
+		close(fd);
+		return (false);
 	}
-	*width = width_origin;
-	free(line);
+	*width = width_temp;
 	close(fd);
 	return (true);
 }
