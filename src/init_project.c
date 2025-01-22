@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:47:13 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/22 17:38:20 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:42:05 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,5 @@ bool	validation_and_set_data(char *file_name, t_fdf *data_)
 		return (false);
 	if (!set_matrix(file_name, data_))
 		return (false);
-	
-	print_z(data_->matrix, data_->height, data_->width);
-	vacuum_matrix(data_->matrix);
 	return (true);
 }

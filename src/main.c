@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/22 17:37:45 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:45:49 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ int	main()
 	// バリデーション&セットでーた
 	if (!validation_and_set_data("../test_maps/basictest.fdf", &data))
 		return (1);
+		
+	// 確認用
+	print_z((&data)->matrix, (&data)->height, (&data)->width);
+	vacuum_matrix((&data)->matrix);
 
 	
 
