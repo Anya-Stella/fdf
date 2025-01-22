@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:26:29 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/22 17:27:03 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:35:23 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ bool	set_height(char *file_name, int *height)
 bool	set_width(char *file_name, int *width)
 {
 	int		fd;
-	char	*line;
 	int		width_temp;
 
 	fd = open(file_name, O_RDONLY);

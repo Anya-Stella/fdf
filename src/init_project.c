@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:47:13 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/20 15:39:56 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:38:20 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init_data(t_fdf *data_)
 	data_->matrix = NULL;
 }
 
-bool	set_data(char *file_name, t_fdf *data_)
+bool	validation_and_set_data(char *file_name, t_fdf *data_)
 {
 	if (!set_height(file_name, &(data_->height)))
 		return (false);

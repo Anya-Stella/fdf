@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/22 17:33:02 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:37:45 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	main()
 	init_data(&data);
 	
 	// バリデーション&セットでーた
+	if (!validation_and_set_data("../test_maps/basictest.fdf", &data))
+		return (1);
 
 	
 
@@ -34,8 +36,6 @@ int	main()
 	// set_data("../test_maps/100-6.fdf", &data);
 	// set_data("../test_maps/42.fdf", &data);
 	// set_data("../test_maps/elem-col.fdf", &data);
-	if (!set_data("../test_maps/basictest.fdf", &data))
-		return (1);
 
 	// set_data("../test_maps/elem-fract.fdf", &data);------------not
 	
