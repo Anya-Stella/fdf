@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:47:13 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/22 17:42:05 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:25:06 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,20 @@ void	init_data(t_fdf *data_)
 	data_->height = 0;
 	data_->width = 0;
 	data_->matrix = NULL;
+}
+
+// matrixをすべて掃除する
+void	vacuum_matrix(int **matrix)
+{
+	int	**origin;
+
+	origin = matrix;
+	while (*matrix)
+	{
+		free(*matrix);
+		matrix++;
+	}
+	free(origin);
 }
 
 bool	validation_and_set_data(char *file_name, t_fdf *data_)

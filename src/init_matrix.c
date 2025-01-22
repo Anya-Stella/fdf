@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:28:20 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/20 21:48:51 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:56:23 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static	int	**create_matrix(int width, int height)
 }
 
 // arrayはrowの先頭ぽいんた
-static	void	fill_array(char *line, int *col, int width)
+static	bool	fill_array(char *line, int *col, int width)
 {
 	char	**nums;
 	char	**iter;
@@ -63,7 +63,7 @@ static	void	fill_array(char *line, int *col, int width)
 
 	nums = ft_split(line, ' ');
 	if (!nums)
-		return ;
+		return (false);
 	iter = nums;
 	temp = nums;
 	while (width-- && *temp)
@@ -78,6 +78,7 @@ static	void	fill_array(char *line, int *col, int width)
         iter++;
     }
 	free(nums);
+	return (true);
 }
 
 bool	set_matrix(char *file_name, t_fdf *data_)
@@ -88,33 +89,38 @@ bool	set_matrix(char *file_name, t_fdf *data_)
 	char	*line;
 
 	matrix = create_matrix(data_->width, data_->height);
-	matrix_dummy = matrix;
+	if (!matrix)
+		return (false);
+	if (!fill_matrix(matrix, file_name, data_->width))
+	{
+		vacuum_matrix(matrix);
+		return (false);
+	}
+	data_->matrix = matrix;
+	return (true);
+}
+
+bool	fill_matrix(int **matrix, char *file_name, int width)
+{
+	int		fd;
+	char	*line;
+
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
 		return (false);
 	line = get_next_line(fd);
 	while (line)
 	{
-		fill_array(line, *matrix_dummy, data_->width);
+		if (!fill_array(line, *matrix, width))
+		{
+			free(line);
+			close(fd);
+			return (false);
+		}
 		free(line);
+		matrix++;
 		line = get_next_line(fd);
-		matrix_dummy++;
 	}
 	close(fd);
-	data_->matrix = matrix;
 	return (true);
-}
-
-// matrixをすべて掃除する
-void	vacuum_matrix(int **matrix)
-{
-	int	**origin;
-
-	origin = matrix;
-	while (*matrix)
-	{
-		free(*matrix);
-		matrix++;
-	}
-	free(origin);
 }

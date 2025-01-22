@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/22 17:45:49 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:48:03 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,23 @@ int	main()
 		
 	// 確認用
 	print_z((&data)->matrix, (&data)->height, (&data)->width);
-	vacuum_matrix((&data)->matrix);
+	
+	// ここから描画処理
+
+
 
 	
 
+	
 	// set_data("../test_maps/10-2.fdf", &data);
 	// set_data("../test_maps/100-6.fdf", &data);
 	// set_data("../test_maps/42.fdf", &data);
 	// set_data("../test_maps/elem-col.fdf", &data);
-
 	// set_data("../test_maps/elem-fract.fdf", &data);------------not
-	
 	// set_data("../test_maps/elem2.fdf", &data);
 	// set_data("../test_maps/mars.fdf", &data);
-	// この時点でmatrixには数字が入っている
 
+	// clean
+	vacuum_matrix((&data)->matrix);
 	return (0);
 }
