@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/22 19:11:15 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/23 15:41:47 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	main()
 	print_z((&data)->matrix, (&data)->height, (&data)->width);
 	
 	// ここから描画処理
+	
 
 
 

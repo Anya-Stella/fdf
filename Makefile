@@ -6,7 +6,7 @@
 #    By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 15:01:07 by tishihar          #+#    #+#              #
-#    Updated: 2025/01/20 13:25:42 by tishihar         ###   ########.fr        #
+#    Updated: 2025/01/23 17:08:08 by tishihar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ NAME := fdf
 # compiler and flags
 CC := cc
 CFLAGS := -Wall -Wextra -Werror
+
 
 # for dev and debug
 DEVFLAGS := -O0 -g -fsanitize=address
@@ -70,6 +71,9 @@ OBJS := $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 # PATH of libft.a
 LIBFT := $(LIBFT_DIR)/libft.a
+
+MLX := $(MLX_INC_DIR)/libmlx_Linux.a 
+MLX_FLAGS := -lXext -lX11
 #===============================================================================
 #                    　---ここから下は基本変えなくていい---
 #===============================================================================
@@ -90,7 +94,7 @@ run: $(NAME)
 
 # main(linker) rule
 $(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LIBFT) $(LDFLAGS)
+	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LIBFT) $(MLX) $(MLX_FLAGS) $(LDFLAGS) 
 
 # compile rule
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
