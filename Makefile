@@ -6,7 +6,7 @@
 #    By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 15:01:07 by tishihar          #+#    #+#              #
-#    Updated: 2025/01/23 17:08:08 by tishihar         ###   ########.fr        #
+#    Updated: 2025/01/23 18:50:32 by tishihar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,7 @@ SRCS := \
 	init_project.c \
 	init_matrix.c \
 	init_width_height.c \
+	draw_line.c \
 	test.c \
     main.c \
 

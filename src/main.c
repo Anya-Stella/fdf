@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/23 18:31:20 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:52:23 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 
 int	deal_key(int keycode , void *param)
 {
+	(void)param;
+	 
 	printf("key is:%d", keycode);
 	return (0);
 }
@@ -41,8 +43,14 @@ int	main()
 	set_mlx(&data_, 1920, 1080, "Hello world!");
 	// key_hook
 	mlx_key_hook((&data_)->window_ptr, deal_key, NULL);
+	
+	// 描画
+	draw_line(&data_);
+
 	// 処理をloopさせる
 	mlx_loop((&data_)->mlx_ptr);
+
+	
 
 	
 

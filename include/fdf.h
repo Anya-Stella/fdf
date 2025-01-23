@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:59:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/23 18:18:43 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:49:00 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ bool	set_matrix(char *file_name, t_fdf *data_);
 bool	validation_and_set_data(char *file_name, t_fdf *data_);
 void	init_data(t_fdf *data_);
 void	set_mlx(t_fdf *data_, int width, int height, char *title);
+
+// draw
+void	draw_line(t_fdf *data_);
 
 // clean
 void	vacuum_matrix(int **matrix);
