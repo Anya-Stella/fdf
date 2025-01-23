@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:59:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/22 17:38:31 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:18:43 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ typedef struct s_fdf
 {
 	int	width;
 	int	height;
-
 	int	**matrix;
+
+	void *mlx_ptr;
+	void *window_ptr;
 } t_fdf;
 
 
@@ -33,6 +35,7 @@ bool	set_width(char *file_name, int *width);
 bool	set_matrix(char *file_name, t_fdf *data_);
 bool	validation_and_set_data(char *file_name, t_fdf *data_);
 void	init_data(t_fdf *data_);
+void	set_mlx(t_fdf *data_, int width, int height, char *title);
 
 // clean
 void	vacuum_matrix(int **matrix);

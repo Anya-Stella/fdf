@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:47:13 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/22 18:25:06 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:18:35 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ void	init_data(t_fdf *data_)
 	data_->height = 0;
 	data_->width = 0;
 	data_->matrix = NULL;
+
+	data_->mlx_ptr = NULL;
+	data_->window_ptr = NULL;
 }
 
 // matrixをすべて掃除する
@@ -42,4 +45,10 @@ bool	validation_and_set_data(char *file_name, t_fdf *data_)
 	if (!set_matrix(file_name, data_))
 		return (false);
 	return (true);
+}
+
+void	set_mlx(t_fdf *data_, int width, int height, char *title)
+{
+	data_->mlx_ptr = mlx_init();
+	data_->window_ptr = mlx_new_window(data_->mlx_ptr, width, height, title);
 }
