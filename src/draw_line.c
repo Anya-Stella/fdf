@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/27 22:44:44 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/27 23:19:11 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@
 
 static	void	init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *data_)
 {
+	int z = data_->matrix[p0_->y][p0_->x];
 
 
 
@@ -71,7 +72,7 @@ static	void	init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *dat
 	line_->dy = abs(p1_->y - p0_->y);
 
 	
-	line_->color = 0xffff00;
+	line_->color = (z) ? 0xffff00 : 0xffffff; 
 }
 
 // 上記のブレゼンハムをポイント渡しに改良
@@ -107,14 +108,14 @@ void	draw_grid(t_fdf *data_)
 	int		y;
 
 	y = 0;
-	while (y <= data_->height)
+	while (y < data_->height)
 	{
 		x = 0;
-		while (x <= data_->width)
+		while (x < data_->width)
 		{
-			if (x < data_->width)
+			if (x + 1 < data_->width)
 				draw_line(&((t_point){x, y}), &((t_point){x + 1, y}), data_);
-			if (y < data_->height)
+			if (y + 1 < data_->height)
 				draw_line(&((t_point){x, y}), &((t_point){x, y + 1}), data_);
 
 			x++;

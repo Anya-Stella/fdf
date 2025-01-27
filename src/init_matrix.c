@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:28:20 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/22 19:20:14 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/27 23:04:33 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static	int	**create_matrix(int width, int height)
 	int	row;
 	int	allocated;
 
-	matrix = (int **)ft_calloc(height + 1, sizeof(int *));
+	matrix = (int **)ft_calloc(height, sizeof(int *));
 	if (!matrix)
 		return (NULL);
 	temp = matrix;
@@ -42,7 +42,7 @@ static	int	**create_matrix(int width, int height)
 	allocated = 0;
 	while (row--)
 	{
-		*temp = (int *)ft_calloc(width + 1, sizeof(int));
+		*temp = (int *)ft_calloc(width, sizeof(int));
 		if (!*temp)
 		{
 			interruption_create_matrix(allocated, matrix);
