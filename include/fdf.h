@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:59:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/27 19:18:01 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/27 22:40:51 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ typedef struct s_line
 
 	int	dx;
 	int dy;
+
+	int color;
 } t_line;
 
 
@@ -57,7 +59,7 @@ void	init_data(t_fdf *data_);
 void	set_mlx(t_fdf *data_, int width, int height, char *title);
 
 // draw
-void	put_pixel(int x, int y, t_fdf *data_);
+void	put_pixel(int x, int y, int color, t_fdf *data_);
 void	draw_line(t_point *p0_, t_point *p1_, t_fdf *data_);
 void	draw_grid(t_fdf *data_);
 

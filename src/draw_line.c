@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/27 21:52:36 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/27 22:44:44 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,19 @@
 
 static	void	init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *data_)
 {
+
+
+
+
 	line_->x0 = data_->zoom * p0_->x;
 	line_->y0 = data_->zoom * p0_->y;
 	line_->x1 = data_->zoom * p1_->x;
 	line_->y1 = data_->zoom * p1_->y;	
 	line_->dx = abs(p1_->x - p0_->x);
 	line_->dy = abs(p1_->y - p0_->y);
+
+	
+	line_->color = 0xffff00;
 }
 
 // 上記のブレゼンハムをポイント渡しに改良
@@ -77,7 +84,7 @@ void	draw_line(t_point *p0_, t_point *p1_, t_fdf *data_)
 	d = 2 * ((&line)->dx - (&line)->dy);
 	while (1)
 	{
-		put_pixel((&line)->x0, (&line)->y0, data_);
+		put_pixel((&line)->x0, (&line)->y0, (&line)->color, data_);
 		if ((&line)->x0 == (&line)->x1 && (&line)->y0 == (&line)->y1)
 			return ;
 		if (d > -(&line)->dy)
