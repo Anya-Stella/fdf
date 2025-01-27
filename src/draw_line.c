@@ -6,25 +6,55 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/23 19:03:11 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:29:38 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
 // void	draw_line(int x1, int y1, int x2, int y2, t_fdf *data_)
-void	draw_line(t_fdf *data_)
+// void	draw_line(t_fdf *data_)
+// {
+// 	int x= 900;
+// 	int x_end = 1800;
+
+// 	//pixel_put
+// 	while (x++ < x_end)
+// 	{
+// 		if (x%2 == 0)
+// 		{
+
+// 		mlx_pixel_put(data_->mlx_ptr, data_->window_ptr, x, 100, 0xffffff);
+// 		}
+// 	}
+// }
+
+
+//-----Bresenham's line algorithm divide dy/dx >= 1-----
+// gear4
+// dx = abs(x2 - x1);
+// dy = abs(y2 - y1);
+// sx = (x2 >= x1) ? 1 : -1;
+// sy = (y2 >= y1) ? 1 : -1;
+
+// if (dx >= dy)
+//     // xをメインに進めるバージョン
+// else
+//     // yをメインに進めるバージョン
+//--------------------------------------
+
+
+
+// (x1, y1)と(x2, y2)を結ぶ直線を描画する関数
+void	draw_line(int x1, int y1, int x2, int y2, t_fdf *data_)
 {
-	int x= 900;
-	int x_end = 1800;
+	int	dx;
+	int	dy;
 
-	//pixel_put
-	while (x++ < x_end)
-	{
-		if (x%2 == 0)
-		{
+	dx = abs(x2 - x1);
+	dy = abs(y2 - y1);
 
-		mlx_pixel_put(data_->mlx_ptr, data_->window_ptr, x, 100, 0xffffff);
-		}
-	}
+	
+
+	
 }

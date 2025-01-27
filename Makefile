@@ -6,7 +6,7 @@
 #    By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 15:01:07 by tishihar          #+#    #+#              #
-#    Updated: 2025/01/23 18:50:32 by tishihar         ###   ########.fr        #
+#    Updated: 2025/01/24 12:11:50 by tishihar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,8 +73,15 @@ OBJS := $(SRCS:%.c=$(OBJ_DIR)/%.o)
 # PATH of libft.a
 LIBFT := $(LIBFT_DIR)/libft.a
 
+# PATH of libmlx.a
 MLX := $(MLX_INC_DIR)/libmlx_Linux.a 
 MLX_FLAGS := -lXext -lX11
+
+# Math frags
+MATH_FRAGS := -lm
+
+# frags
+LIB_FLAGS := $(MLX_FRAGS) $(MATH_FRAGS)
 #===============================================================================
 #                    　---ここから下は基本変えなくていい---
 #===============================================================================
@@ -95,7 +102,7 @@ run: $(NAME)
 
 # main(linker) rule
 $(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LIBFT) $(MLX) $(MLX_FLAGS) $(LDFLAGS) 
+	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LIBFT) $(MLX) $(LIB_FLAGS) $(LDFLAGS)
 
 # compile rule
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
