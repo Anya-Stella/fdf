@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/27 18:36:52 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:52:54 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,15 @@ int	main()
 	// 描画
 	// print_z((&data_)->matrix, (&data_)->height, (&data_)->width);
 
-	t_point p0;
-	t_point p1;
-
-	(&p0)->x = 100;
-	(&p0)->y = 100;
-	(&p1)->x = 10;
-	(&p1)->y = 10;
-
-
-
-	draw_line(&p0, &p1, &data_);
-	// draw_grid(&data_);
+	// t_point p0;
+	// t_point p1;
+	// (&p0)->x = 100;
+	// (&p0)->y = 100;
+	// (&p1)->x = 10;
+	// (&p1)->y = 10;
+	// draw_line(&p0, &p1, &data_);
+	
+	draw_grid(&data_);
 
 
 

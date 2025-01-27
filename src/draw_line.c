@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/27 18:18:46 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:06:16 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,22 +94,21 @@ void	draw_line(t_point *p0_, t_point *p1_, t_fdf *data_)
 }
 
 // 格子を描く
-// void	draw_grid(t_fdf *data_)
-// {
-// 	int	x;
-// 	int	y;
+void	draw_grid(t_fdf *data_)
+{
+	int		x;
+	int		y;
 
-// 	y = 0;
-// 	while (y <= data_->height)
-// 	{
-// 		x = 0;
-// 		while (x <= data_->width)
-// 		{
-// 			// ここにくるのは、heightとwidth間のデカルト直行座標
-// 			draw_line(x, y, x + 1, y, data_);
-// 			draw_line(x, y, x, y + 1, data_);
-// 			x++;
-// 		}
-// 		y++;
-// 	}
-// }
+	y = 0;
+	while (y <= data_->height)
+	{
+		x = 0;
+		while (x <= data_->width)
+		{
+			draw_line(&((t_point){x, y}),&(t_point){x + 1, y}, data_);
+			draw_line(&((t_point){x, y}),&(t_point){x, y + 1}, data_);	
+			x++;
+		}
+		y++;
+	}
+}

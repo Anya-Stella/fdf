@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:59:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/27 18:10:13 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:42:17 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	set_mlx(t_fdf *data_, int width, int height, char *title);
 // draw
 void	put_pixel(int x, int y, t_fdf *data_);
 void	draw_line(t_point *p0_, t_point *p1_, t_fdf *data_);
-// void	draw_grid(t_fdf *data_);
+void	draw_grid(t_fdf *data_);
 
 // clean
 void	vacuum_matrix(int **matrix);
