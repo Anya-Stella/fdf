@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/27 15:50:22 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:36:52 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,44 @@ int	main()
 {
 	t_fdf		data_;
 
-	// 初期化：ファイル名をつっこんでmatrixを初期化する
+	// 初期化 ---------------
 	init_data(&data_);
-	
-	// バリデーション&セットでーた
-	if (!validation_and_set_data("../test_maps/mars.fdf", &data_))
+	if (!validation_and_set_data("../test_maps/basictest.fdf", &data_))
 		return (1);
 	
 	// --- ここから描画処理 ---
-	// 初期化
+	// mlx初期化
 	set_mlx(&data_, 1920, 1080, "Hello world!");
 	// key_hook
 	mlx_key_hook((&data_)->window_ptr, deal_key, NULL);
+
 	
 	// 描画
-	draw_line(100, 100, 100, 1000, &(data_));
+	// print_z((&data_)->matrix, (&data_)->height, (&data_)->width);
+
+	t_point p0;
+	t_point p1;
+
+	(&p0)->x = 100;
+	(&p0)->y = 100;
+	(&p1)->x = 10;
+	(&p1)->y = 10;
+
+
+
+	draw_line(&p0, &p1, &data_);
+	// draw_grid(&data_);
+
+
+
+
+
+
+
+	
 
 	// 処理をloopさせる
 	mlx_loop((&data_)->mlx_ptr);
-
-	
-
-	
-
-	
-
-
 	// clean
 	vacuum_matrix((&data_)->matrix);
 	return (0);

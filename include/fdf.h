@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:59:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/27 15:39:27 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:10:13 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,23 @@ typedef struct s_fdf
 	void *window_ptr;
 } t_fdf;
 
+typedef struct s_point
+{
+	int x;
+	int y;
+} t_point;
+
+typedef struct s_line
+{
+	int x0;
+	int y0;
+	int x1;
+	int y1;
+
+	int	dx;
+	int dy;
+} t_line;
+
 
 // init_data
 bool	set_height(char *file_name, int *height);
@@ -40,7 +57,8 @@ void	set_mlx(t_fdf *data_, int width, int height, char *title);
 
 // draw
 void	put_pixel(int x, int y, t_fdf *data_);
-void	draw_line(int x0, int y0, int x1, int y1, t_fdf *data_);
+void	draw_line(t_point *p0_, t_point *p1_, t_fdf *data_);
+// void	draw_grid(t_fdf *data_);
 
 // clean
 void	vacuum_matrix(int **matrix);
