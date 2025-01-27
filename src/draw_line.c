@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/27 16:00:12 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:24:00 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@
 
 // (x1, y1)と(x2, y2)を結ぶ直線を描画する関数
 // Bresenham's line algorithm gear5
+// 理解のための注釈：
+// d > -dy、d < dxはgear4の条件と同じものをdの初項を2(dx-dy)にし、
+// 公差も２倍にすることで成り立つので、gear4を数学的理解するところからはじまる。
 void	draw_line(int x0, int y0, int x1, int y1, t_fdf *data_)
 {
 	int	dx;
