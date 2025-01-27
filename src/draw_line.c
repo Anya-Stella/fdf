@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/27 19:22:17 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/27 21:52:36 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,8 +105,11 @@ void	draw_grid(t_fdf *data_)
 		x = 0;
 		while (x <= data_->width)
 		{
-			draw_line(&((t_point){x, y}),&((t_point){x + 1, y}), data_);
-			draw_line(&((t_point){x, y}),&((t_point){x, y + 1}), data_);	
+			if (x < data_->width)
+				draw_line(&((t_point){x, y}), &((t_point){x + 1, y}), data_);
+			if (y < data_->height)
+				draw_line(&((t_point){x, y}), &((t_point){x, y + 1}), data_);
+
 			x++;
 		}
 		y++;
