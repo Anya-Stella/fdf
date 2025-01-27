@@ -6,7 +6,7 @@
 #    By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 15:01:07 by tishihar          #+#    #+#              #
-#    Updated: 2025/01/24 12:11:50 by tishihar         ###   ########.fr        #
+#    Updated: 2025/01/27 15:48:17 by tishihar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ SRCS := \
 	init_matrix.c \
 	init_width_height.c \
 	draw_line.c \
+	utils.c \
 	test.c \
     main.c \
 
@@ -78,10 +79,10 @@ MLX := $(MLX_INC_DIR)/libmlx_Linux.a
 MLX_FLAGS := -lXext -lX11
 
 # Math frags
-MATH_FRAGS := -lm
+MATH_FLAGS := -lm
 
 # frags
-LIB_FLAGS := $(MLX_FRAGS) $(MATH_FRAGS)
+LIB_FLAGS := $(MLX_FLAGS) $(MATH_FLAGS)
 #===============================================================================
 #                    　---ここから下は基本変えなくていい---
 #===============================================================================
