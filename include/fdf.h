@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:59:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/27 18:42:17 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:18:01 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_fdf
 	int	width;
 	int	height;
 	int	**matrix;
+	int zoom;
 
 	void *mlx_ptr;
 	void *window_ptr;

@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/27 19:06:16 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:22:17 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@
 // 	}	
 // }
 
-static	void	init_line_info(t_point *p0_, t_point *p1_, t_line *line_)
+static	void	init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *data_)
 {
-	line_->x0 = p0_->x;
-	line_->y0 = p0_->y;
-	line_->x1 = p1_->x;
-	line_->y1 = p1_->y;	
+	line_->x0 = data_->zoom * p0_->x;
+	line_->y0 = data_->zoom * p0_->y;
+	line_->x1 = data_->zoom * p1_->x;
+	line_->y1 = data_->zoom * p1_->y;	
 	line_->dx = abs(p1_->x - p0_->x);
 	line_->dy = abs(p1_->y - p0_->y);
 }
@@ -73,7 +73,7 @@ void	draw_line(t_point *p0_, t_point *p1_, t_fdf *data_)
 	int 	d;
 	t_line	line;
 	
-	init_line_info(p0_, p1_, &line);
+	init_line_info(p0_, p1_, &line, data_);
 	d = 2 * ((&line)->dx - (&line)->dy);
 	while (1)
 	{
@@ -105,8 +105,8 @@ void	draw_grid(t_fdf *data_)
 		x = 0;
 		while (x <= data_->width)
 		{
-			draw_line(&((t_point){x, y}),&(t_point){x + 1, y}, data_);
-			draw_line(&((t_point){x, y}),&(t_point){x, y + 1}, data_);	
+			draw_line(&((t_point){x, y}),&((t_point){x + 1, y}), data_);
+			draw_line(&((t_point){x, y}),&((t_point){x, y + 1}), data_);	
 			x++;
 		}
 		y++;
