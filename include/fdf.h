@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:59:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/29 15:58:26 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:37:56 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ void print_z(int **matrix, int height, int width);
 // utils
 void	put_pixel(int x, int y, int color, t_fdf *data_);
 int	zoom(int value, int magnification);
-// int	caluculate_isometric_x(int x, int y);
-// int	caluculate_isometric_y(int x, int y, int z);
+int	caluculate_isometric_x(int x, int y);
+int	caluculate_isometric_y(int x, int y, int z);
 
 
 #endif

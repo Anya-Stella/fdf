@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/27 18:52:54 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:17:20 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main()
 
 	// 初期化 ---------------
 	init_data(&data_);
-	if (!validation_and_set_data("../test_maps/basictest.fdf", &data_))
+	if (!validation_and_set_data("../test_maps/42.fdf", &data_))
 		return (1);
 	
 	// --- ここから描画処理 ---

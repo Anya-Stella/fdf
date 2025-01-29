@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/29 15:56:57 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:03:19 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@
 static	void	init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *data_)
 {
 	int z = data_->matrix[p0_->y][p0_->x];
+	// int z1 = data_->matrix[p1_->y][p1_->x];
 
 
 
