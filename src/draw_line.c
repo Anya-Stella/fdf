@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/29 17:03:19 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/29 20:44:10 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@
 
 static	void	init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *data_)
 {
-	int z = data_->matrix[p0_->y][p0_->x];
-	// int z1 = data_->matrix[p1_->y][p1_->x];
+	int z0 = zoom(data_->matrix[p0_->y][p0_->x], data_->zoom);
+	int z1 = zoom(data_->matrix[p1_->y][p1_->x], data_->zoom);
 
 
 
@@ -84,11 +84,16 @@ static	void	init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *dat
 	line_->x1 = zoom(p1_->x, data_->zoom);
 	line_->y1 = zoom(p1_->y, data_->zoom);
 
-	line_->dx = abs(p1_->x - p0_->x);
-	line_->dy = abs(p1_->y - p0_->y);
+	line_->x0 = caluculate_isometric_x(line_->x0, line_->y0);
+	line_->y0 = caluculate_isometric_y(line_->x0, line_->y0, z0);
+	line_->x1 = caluculate_isometric_x(line_->x1, line_->y1);
+	line_->y1 = caluculate_isometric_y(line_->x1, line_->y1, z1);
+
+	line_->dx = abs(line_->x1 - line_->x0);
+	line_->dy = abs(line_->y1 - line_->y0);
 
 	
-	line_->color = (z) ? 0xffff00 : 0xffffff; 
+	line_->color = (z0 != 0 || z1 != 0) ? 0xffff00 : 0xffffff;
 }
 
 
