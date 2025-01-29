@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/29 13:50:58 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/29 15:56:57 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@
 // 	}	
 // }
 
+
 static	void	init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *data_)
 {
 	int z = data_->matrix[p0_->y][p0_->x];
@@ -77,16 +78,18 @@ static	void	init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *dat
 
 
 
-	line_->x0 = data_->zoom * p0_->x;
-	line_->y0 = data_->zoom * p0_->y;
-	line_->x1 = data_->zoom * p1_->x;
-	line_->y1 = data_->zoom * p1_->y;	
+	line_->x0 = zoom(p0_->x, data_->zoom);
+	line_->y0 = zoom(p0_->y, data_->zoom);
+	line_->x1 = zoom(p1_->x, data_->zoom);
+	line_->y1 = zoom(p1_->y, data_->zoom);
+
 	line_->dx = abs(p1_->x - p0_->x);
 	line_->dy = abs(p1_->y - p0_->y);
 
 	
 	line_->color = (z) ? 0xffff00 : 0xffffff; 
 }
+
 
 // 上記のブレゼンハムをポイント渡しに改良
 void	draw_line(t_point *p0_, t_point *p1_, t_fdf *data_)
@@ -130,7 +133,6 @@ void	draw_grid(t_fdf *data_)
 				draw_line(&((t_point){x, y}), &((t_point){x + 1, y}), data_);
 			if (y + 1 < data_->height)
 				draw_line(&((t_point){x, y}), &((t_point){x, y + 1}), data_);
-
 			x++;
 		}
 		y++;
