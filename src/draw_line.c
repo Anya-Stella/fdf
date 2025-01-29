@@ -6,23 +6,36 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/27 23:19:11 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/29 13:50:58 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+// 参照：https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AC%E3%82%BC%E3%83%B3%E3%83%8F%E3%83%A0%E3%81%AE%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0
 //-----Bresenham's line algorithm divide dy/dx >= 1-----
 // gear4
 // dx = abs(x2 - x1);
 // dy = abs(y2 - y1);
 // sx = (x2 >= x1) ? 1 : -1;
 // sy = (y2 >= y1) ? 1 : -1;
+//
+// plot(x0,y0, x1,y1)
+//   dx=x1-x0
+//   dy=y1-y0
 
-// if (dx >= dy)
-//     // xをメインに進めるバージョン
-// else
-//     // yをメインに進めるバージョン
+//   D = 2*dy - dx
+//   plot(x0,y0)
+//   y=y0
+
+//   for x from x0+1 to x1
+//     if D > 0
+//       y = y+1
+//       plot(x,y)
+//       D = D + (2*dy-2*dx)
+//     else
+//       plot(x,y)
+//       D = D + (2*dy)
 //--------------------------------------
 
 // (x1, y1)と(x2, y2)を結ぶ直線を描画する関数
