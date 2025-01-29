@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/29 16:17:20 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/29 21:38:20 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,26 +43,10 @@ int	main()
 	mlx_key_hook((&data_)->window_ptr, deal_key, NULL);
 
 	
-	// 描画
-	// print_z((&data_)->matrix, (&data_)->height, (&data_)->width);
-
-	// t_point p0;
-	// t_point p1;
-	// (&p0)->x = 100;
-	// (&p0)->y = 100;
-	// (&p1)->x = 10;
-	// (&p1)->y = 10;
-	// draw_line(&p0, &p1, &data_);
-	
 	draw_grid(&data_);
 
 
 
-
-
-
-
-	
 
 	// 処理をloopさせる
 	mlx_loop((&data_)->mlx_ptr);

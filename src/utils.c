@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 19:41:36 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/29 20:44:44 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/29 21:33:10 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ int    caluculate_isometric_y(int x, int y, int z)
     double result;
 
     angle = pie / 6.0;
-    result = (x + y) * sin(angle) + z;
+    result = (x + y) * sin(angle) - z;
     return  ((int)result);
 }
