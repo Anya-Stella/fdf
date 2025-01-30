@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/29 21:37:09 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/30 15:26:18 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,29 +70,29 @@
 // 	}	
 // }
 
-
-static	void	init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *data_)
+static void init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *data_)
 {
-	int z0 = zoom(data_->matrix[p0_->y][p0_->x], data_->z_zoom);
-	int z1 = zoom(data_->matrix[p1_->y][p1_->x], data_->z_zoom);
-
-
-
-
-	line_->x0 = zoom(p0_->x, data_->zoom);
-	line_->y0 = zoom(p0_->y, data_->zoom);
-	line_->x1 = zoom(p1_->x, data_->zoom);
-	line_->y1 = zoom(p1_->y, data_->zoom);
-
-	line_->x0 = caluculate_isometric_x(line_->x0, line_->y0) + 1920/2;
-	line_->y0 = caluculate_isometric_y(line_->x0, line_->y0, z0) ;
-	line_->x1 = caluculate_isometric_x(line_->x1, line_->y1) + 1920/2;
-	line_->y1 = caluculate_isometric_y(line_->x1, line_->y1, z1) ;
-
-	line_->dx = abs(line_->x1 - line_->x0);
-	line_->dy = abs(line_->y1 - line_->y0);
+    int z0  = zoom(data_->matrix[p0_->y][p0_->x], data_->z_zoom);
+    int z1  = zoom(data_->matrix[p1_->y][p1_->x], data_->z_zoom);
 	
-	line_->color = (z0 != 0 || z1 != 0) ? 0xffff00 : 0x00ffff;
+    // 画面中央に移動 (オフセット加算)
+    int offsetX = (data_->win_width  - zoom(data_->width, data_->zoom)) / 2;
+    int offsetY = (data_->win_height - zoom(data_->height, data_->zoom)) / 2;
+	
+    p0_->x = zoom(p0_->x, data_->zoom);
+    p0_->y = zoom(p0_->y, data_->zoom);
+    p1_->x = zoom(p1_->x, data_->zoom);
+    p1_->y = zoom(p1_->y, data_->zoom);
+
+    line_->x0 = caluculate_isometric_x(p0_->x, p0_->y) + offsetX;
+    line_->y0 = caluculate_isometric_y(p0_->x, p0_->y, z0) + offsetY;
+    line_->x1 = caluculate_isometric_x(p1_->x, p1_->y) + offsetX;
+    line_->y1 = caluculate_isometric_y(p1_->x, p1_->y, z1) + offsetY;
+
+    // 以下はブレゼンハム用の下準備
+    line_->dx = abs(line_->x1 - line_->x0);
+    line_->dy = abs(line_->y1 - line_->y0);
+    line_->color = (z0 != 0 || z1 != 0) ? 0xffff00 : 0x00ffff;
 }
 
 

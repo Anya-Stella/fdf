@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/29 21:38:20 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/30 14:02:13 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main()
 	
 	// --- ここから描画処理 ---
 	// mlx初期化
-	set_mlx(&data_, 1920, 1080, "Hello world!");
+	set_mlx(&data_, (&data_)->win_width, (&data_)->win_height, "Hello world!");
 	// key_hook
 	mlx_key_hook((&data_)->window_ptr, deal_key, NULL);
 
