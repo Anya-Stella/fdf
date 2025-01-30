@@ -6,17 +6,16 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 19:41:36 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/30 18:15:03 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/30 20:21:31 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 
-// pixelを打つ関数->bufferに保存
+// pixelを打つ関数->bufferに保存// ()
 void	put_pixel(int x, int y, int color, t_fdf *data_)
 {
-	if ((0 <= x && x < data_->win_width) && (0 <= y && y < data_->win_height))
-		data_->buffer[data_->win_width*y + x] = color;
+	data_->buffer[data_->win_width * y + x] = color;
 }
 
 
@@ -47,7 +46,7 @@ int    caluculate_isometric_x(int x, int y)
 {
     double result;
 
-    result = (x - y) * 1.0;
+    result = (x - y) * 1;// 0.8666
     return  ((int)result);
 }
 

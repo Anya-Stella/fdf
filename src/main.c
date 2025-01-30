@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/30 18:10:17 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/30 20:10:05 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int	main()
 	// key_hook
 	mlx_key_hook((&data_)->window_ptr, deal_key, NULL);
 
-	
 
-	(&data_)->buffer = mlx_new_image((&data_)->mlx_ptr, (&data_)->win_width, (&data_)->win_height);
+	// bufferの初期化（こいつはwidth*heightぶんのbufferを確保する）// 1920*1080;
+	data_.buffer = mlx_new_image((&data_)->mlx_ptr, (&data_)->win_width, (&data_)->win_height);
 
 	// 描画
 	draw_grid(&data_);
