@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/30 16:57:33 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/30 22:31:06 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static void init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *dat
 	
     // 画面中央に移動 (オフセット加算)
     int offsetX = (data_->win_width  - zoom(data_->width, data_->zoom)) / 2;
-    int offsetY = (data_->win_height - zoom(data_->height, data_->zoom)) / 2;
+    int offsetY = (data_->win_height - zoom(data_->height, data_->zoom));
 	
     p0_->x = zoom(p0_->x, data_->zoom);
     p0_->y = zoom(p0_->y, data_->zoom);
