@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 19:41:36 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/30 15:35:30 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/30 17:45:24 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,20 @@ int	zoom(int value, int magnification)
 //
 // みたいにする時のそれぞれの軸への単位ベクトルvx=(cosθ,sinθ)とvy=(-cosθ,sinθ)とvz=(0,1)をそれぞれの大きさぶんスカラー倍したものの合成ベクトルをかんがえればよい。
 
+// cos(π/6)＝１に近似
 int    caluculate_isometric_x(int x, int y)
 {
-    double angle;
-    double pie = 3.141592653589793;
     double result;
 
-    angle = pie / 6.0;
-    result = (x - y) * cos(angle);
+    result = (x - y) * 1.0;
     return  ((int)result);
 }
 
+// sin(π/6)＝0.5
 int    caluculate_isometric_y(int x, int y, int z)
 {
-    double angle;
-    double pie = 3.141592653589793;
     double result;
 
-    angle = pie / 6.0;
-    result = (x + y) * sin(angle) - z;
+    result = (x + y) * 0.5 - z;
     return  ((int)result);
 }

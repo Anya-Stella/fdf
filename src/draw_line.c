@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/30 15:26:18 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:57:33 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,14 @@ static void init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *dat
     p0_->y = zoom(p0_->y, data_->zoom);
     p1_->x = zoom(p1_->x, data_->zoom);
     p1_->y = zoom(p1_->y, data_->zoom);
+
+	//test
+    // line_->x0 = p0_->x + offsetX;
+    // line_->y0 = p0_->y + offsetY;
+    // line_->x1 = p1_->x + offsetX;
+    // line_->y1 = p1_->y + offsetY;
+	//test
+
 
     line_->x0 = caluculate_isometric_x(p0_->x, p0_->y) + offsetX;
     line_->y0 = caluculate_isometric_y(p0_->x, p0_->y, z0) + offsetY;
