@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/30 22:31:06 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/30 22:53:34 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,21 +111,21 @@ void	draw_line(t_point *p0_, t_point *p1_, t_fdf *data_)
 	t_line	line;
 	
 	init_line_info(p0_, p1_, &line, data_);
-	d = 2 * ((&line)->dx - (&line)->dy);
+	d = 2 * (line.dx - line.dy);
 	while (1)
 	{
-		put_pixel((&line)->x0, (&line)->y0, (&line)->color, data_);
-		if ((&line)->x0 == (&line)->x1 && (&line)->y0 == (&line)->y1)
+		put_pixel(line.x0, line.y0, line.color, data_);
+		if (line.x0 == line.x1 && line.y0 == line.y1)
 			return ;
-		if (d > -(&line)->dy)
+		if (d > -line.dy)
 		{
-			d += -2 * (&line)->dy;
-			(&line)->x0 += 2 * ((&line)->x0 < (&line)->x1) - 1;
+			d += -2 * line.dy;
+			line.x0 += 2 * (line.x0 < line.x1) - 1;
 		}
-		if (d < (&line)->dx)
+		if (d < line.dx)
 		{
-			d += 2 * (&line)->dx;
-			(&line)->y0 += 2 * ((&line)->y0 < (&line)->y1) - 1;
+			d += 2 * line.dx;
+			line.y0 += 2 * (line.y0 < line.y1) - 1;
 		}
 	}
 }
