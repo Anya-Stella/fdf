@@ -6,16 +6,17 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 19:41:36 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/30 17:45:24 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:15:03 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"fdf.h"
 
-// pixelを打つ関数
+// pixelを打つ関数->bufferに保存
 void	put_pixel(int x, int y, int color, t_fdf *data_)
 {
-	mlx_pixel_put(data_->mlx_ptr, data_->window_ptr, x, y, color);
+	if ((0 <= x && x < data_->win_width) && (0 <= y && y < data_->win_height))
+		data_->buffer[data_->win_width*y + x] = color;
 }
 
 

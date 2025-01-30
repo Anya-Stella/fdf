@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:47:13 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/30 15:30:01 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/30 17:56:40 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	init_data(t_fdf *data_)
 
 	data_->win_width = 1920;
 	data_->win_height = 1080;
+
+	data_->buffer = NULL;
 	
 	data_->mlx_ptr = NULL;
 	data_->window_ptr = NULL;

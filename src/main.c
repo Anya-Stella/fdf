@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/30 14:02:13 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:10:17 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,15 @@ int	main()
 	mlx_key_hook((&data_)->window_ptr, deal_key, NULL);
 
 	
+
+	(&data_)->buffer = mlx_new_image((&data_)->mlx_ptr, (&data_)->win_width, (&data_)->win_height);
+
+	// 描画
 	draw_grid(&data_);
+
+	mlx_put_image_to_window((&data_)->mlx_ptr,(&data_)->window_ptr, (&data_)->buffer, 0, 0);
+
+	
 
 
 
