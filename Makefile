@@ -6,7 +6,7 @@
 #    By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 15:01:07 by tishihar          #+#    #+#              #
-#    Updated: 2025/01/27 15:48:17 by tishihar         ###   ########.fr        #
+#    Updated: 2025/01/30 21:57:16 by tishihar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,7 +98,7 @@ dev: LDFLAGS += $(DEVFLAGS)
 dev: all
 
 # use: make run ARGS="1 2 3" or make run
-run: $(NAME)
+run: all $(NAME)
 	$(VALGRIND) $(VALGRINDFLAGS) ./$(NAME) $(ARGS)
 
 # main(linker) rule
