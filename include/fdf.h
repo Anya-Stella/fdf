@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:59:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/30 17:56:04 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:19:16 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	draw_line(t_point *p0_, t_point *p1_, t_fdf *data_);
 void	draw_grid(t_fdf *data_);
 
 // clean
-void	vacuum_matrix(int **matrix);
+void	vacuum_matrix(int **matrix, t_fdf *data_);
 
 // main
 int	main();

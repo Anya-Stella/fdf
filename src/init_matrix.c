@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:28:20 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/27 23:04:33 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/31 16:20:45 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ bool	set_matrix(char *file_name, t_fdf *data_)
 		return (false);
 	if (!fill_matrix(matrix, file_name, data_->width))
 	{
-		vacuum_matrix(matrix);
+		vacuum_matrix(matrix, data_);
 		return (false);
 	}
 	data_->matrix = matrix;
