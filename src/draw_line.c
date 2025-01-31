@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/31 20:32:26 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/31 21:23:22 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,23 +76,13 @@ static void init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *dat
     int z1  = zoom(data_->matrix[p1_->y][p1_->x], data_->z_zoom);
 	
     // 画面中央に移動 (オフセット加算)
-    int offsetX = (data_->win_width  - zoom(data_->width, data_->zoom)) / 2;
-    int offsetY = (data_->win_height - zoom(data_->height, data_->zoom));
-	
-    // int offsetX = 0;
-    // int offsetY = 0;
+    int offsetX = (data_->win_width)/2;
+	int offsetY = (data_->win_height - zoom(data_->height, data_->zoom)) / 2;
 	
     p0_->x = zoom(p0_->x, data_->zoom);
     p0_->y = zoom(p0_->y, data_->zoom);
     p1_->x = zoom(p1_->x, data_->zoom);
     p1_->y = zoom(p1_->y, data_->zoom);
-
-	//test
-    // line_->x0 = p0_->x + offsetX;
-    // line_->y0 = p0_->y + offsetY;
-    // line_->x1 = p1_->x + offsetX;
-    // line_->y1 = p1_->y + offsetY;
-	//test
 
 
     line_->x0 = caluculate_isometric_x(p0_->x, p0_->y) + offsetX;
