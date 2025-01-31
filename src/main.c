@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/31 18:24:15 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/31 19:37:00 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,27 @@ int	main()
 {
 	t_fdf		data_;
 
-	// 初期化 ---------------
+	// dataの初期化 ---------------
 	init_data(&data_);
 	if (!validation_and_set_data("../test_maps/pyra.fdf", &data_))
 		return (1);
 
-	
-
-
-
-
-
-
-	// --- ここから描画処理 ---
-	// mlx初期化
+	// mlxの初期化 ---------------
 	set_mlx(&data_, data_.win_width, data_.win_height, "Hello world!");
-	// // key_hook
 	mlx_key_hook(data_.window_ptr, deal_key, NULL);
 
 
 	// // bufferの初期化（こいつはwidth*heightぶんのbufferを確保する）// 1920*1080;
-	data_.buffer = mlx_new_image(data_.mlx_ptr, data_.win_width, data_.win_height);
+	
 
-	// // 描画
+
+	////////kokomadehaatteruy!!!!!
+
+
+
 	draw_grid(&data_);
 
-	mlx_put_image_to_window(data_.mlx_ptr,data_.window_ptr, data_.buffer, 0, 0);
+	mlx_put_image_to_window(data_.mlx_ptr,data_.window_ptr, data_.img, 0, 0);
 
 	
 

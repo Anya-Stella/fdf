@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 19:41:36 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/30 20:21:31 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/31 21:08:21 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 // pixelを打つ関数->bufferに保存// ()
 void	put_pixel(int x, int y, int color, t_fdf *data_)
 {
-	data_->buffer[data_->win_width * y + x] = color;
+	if (0 <= x && x < data_->win_width && 0 <= y && y < data_->win_height)
+		data_->img_ptr[y * data_->win_width + x] = color;
 }
 
 

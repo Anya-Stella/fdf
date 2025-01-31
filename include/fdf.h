@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:59:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/31 16:19:16 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/31 20:59:38 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,14 @@ typedef struct s_fdf
 	int win_width;
 	int win_height;
 
-	int	*buffer;
-	
-	void *mlx_ptr;
-	void *window_ptr;
+	void	*mlx_ptr;
+	void	*window_ptr;
+	void	*img;
+	int		*img_ptr;
+
+	int		bpp;
+	int		size_l;
+	int		endian;
 } t_fdf;
 
 typedef struct s_point

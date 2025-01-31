@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:47:13 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/31 16:18:25 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/01/31 21:06:20 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void	init_data(t_fdf *data_)
 
 	data_->win_width = 1920;
 	data_->win_height = 1080;
-
-	data_->buffer = NULL;
 	
 	data_->mlx_ptr = NULL;
 	data_->window_ptr = NULL;
+	data_->img = NULL;
+	data_->img_ptr = NULL;
 }
 
 // matrixをすべて掃除する
@@ -61,4 +61,6 @@ void	set_mlx(t_fdf *data_, int width, int height, char *title)
 {
 	data_->mlx_ptr = mlx_init();
 	data_->window_ptr = mlx_new_window(data_->mlx_ptr, width, height, title);
+	data_->img = mlx_new_image(data_->mlx_ptr, data_->win_width, data_->win_height);
+	data_->img_ptr = (int	*)mlx_get_data_addr(data_->img, &(data_->bpp), &(data_->size_l), &(data_->endian));
 }
