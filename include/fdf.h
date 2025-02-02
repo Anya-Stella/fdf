@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:59:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/01 16:31:33 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/02 15:30:22 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,13 @@ void	vacuum_matrix(int **matrix, t_fdf *data_);
 int	main();
 
 // test
-void print_z(int **matrix, int height, int width);
+// void print_z(int **matrix, int height, int width);
 
 // utils
 void	put_pixel(int x, int y, int color, t_fdf *data_);
 int	zoom(int value, int magnification);
-int	caluculate_isometric_x(int x, int y);
-int	caluculate_isometric_y(int x, int y, int z);
+int	calc_isometric_x(int x, int y);
+int	calc_isometric_y(int x, int y, int z);
 
 // utils_mlx
 void	draw(t_fdf *data_);

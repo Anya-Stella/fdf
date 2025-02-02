@@ -6,13 +6,13 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/02 14:32:58 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/02 15:44:03 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-// 参照：https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AC%E3%82%BC%E3%83%B3%E3%83%8F%E3%83%A0%E3%81%AE%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0
+// 参照：wikipedia
 //-----Bresenham's line algorithm divide dy/dx >= 1-----
 // gear4
 // dx = abs(x2 - x1);
@@ -70,45 +70,46 @@
 // 	}	
 // }
 
-static void init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *data_)
+static	void	init_line(t_point *p0_, t_point *p1_, t_line *l_, t_fdf *d_)
 {
-    int z0  = zoom(data_->matrix[p0_->y][p0_->x], data_->z_zoom);
-    int z1  = zoom(data_->matrix[p1_->y][p1_->x], data_->z_zoom);
-	
-    // 画面中央に移動 (オフセット加算)
-    int offsetX = (data_->win_width) / 2;
-	int offsetY = (data_->win_height - zoom(data_->height, data_->zoom)) / 2;
-	
-    p0_->x = zoom(p0_->x, data_->zoom);
-    p0_->y = zoom(p0_->y, data_->zoom);
-    p1_->x = zoom(p1_->x, data_->zoom);
-    p1_->y = zoom(p1_->y, data_->zoom);
+	int	z0;
+	int	z1;
+	int	offset_x;
+	int	offset_y;
 
-
-    line_->x0 = caluculate_isometric_x(p0_->x, p0_->y) + offsetX + data_->shift_x;
-    line_->y0 = caluculate_isometric_y(p0_->x, p0_->y, z0) + offsetY + data_->shift_y;
-    line_->x1 = caluculate_isometric_x(p1_->x, p1_->y) + offsetX + data_->shift_x;
-    line_->y1 = caluculate_isometric_y(p1_->x, p1_->y, z1) + offsetY + data_->shift_y;
-
-    // 以下はブレゼンハム用の下準備
-    line_->dx = abs(line_->x1 - line_->x0);
-    line_->dy = abs(line_->y1 - line_->y0);
-    line_->color = (z0 != 0 || z1 != 0) ? 0xffff00 : 0x00ffff;
+	z0 = zoom(d_->matrix[p0_->y][p0_->x], d_->z_zoom);
+	z1 = zoom(d_->matrix[p1_->y][p1_->x], d_->z_zoom);
+	offset_x = (d_->win_width) / 2;
+	offset_y = (d_->win_height - zoom(d_->height, d_->zoom)) / 2;
+	p0_->x = zoom(p0_->x, d_->zoom);
+	p0_->y = zoom(p0_->y, d_->zoom);
+	p1_->x = zoom(p1_->x, d_->zoom);
+	p1_->y = zoom(p1_->y, d_->zoom);
+	l_->x0 = calc_isometric_x(p0_->x, p0_->y) + offset_x + d_->shift_x;
+	l_->y0 = calc_isometric_y(p0_->x, p0_->y, z0) + offset_y + d_->shift_y;
+	l_->x1 = calc_isometric_x(p1_->x, p1_->y) + offset_x + d_->shift_x;
+	l_->y1 = calc_isometric_y(p1_->x, p1_->y, z1) + offset_y + d_->shift_y;
+	l_->dx = abs(l_->x1 - l_->x0);
+	l_->dy = abs(l_->y1 - l_->y0);
+	if (z0 != 0 || z1 != 0)
+		l_->color = 0xffff00;
+	else
+		l_->color = 0x00ffff;
 }
 
 //　imgのバッファを初期化
-static void init_screen(t_fdf	*data_)
+static	void	init_screen(t_fdf	*d_)
 {
-	ft_bzero(data_->img_ptr, data_->win_width * data_->win_height * (data_->bpp / 8));
+	ft_bzero(d_->img_ptr, d_->win_width * d_->win_height * (d_->bpp / 8));
 }
 
 // 上記のブレゼンハムをポイント渡しに改良
 void	draw_line(t_point *p0_, t_point *p1_, t_fdf *data_)
 {
-	int 	d;
+	int		d;
 	t_line	line;
-	
-	init_line_info(p0_, p1_, &line, data_);
+
+	init_line(p0_, p1_, &line, data_);
 	d = 2 * (line.dx - line.dy);
 	while (1)
 	{

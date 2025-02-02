@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/02 14:32:08 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/02 15:12:49 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 // 3: .fdfファイルの配列に色が含まれる場合、それは考慮しない。（// TODO: koremada）
 // ---------
 
-int	deal_key(int keycode , t_fdf *data_)
+// • Clicking on the cross on the window’s frame must close the window and quit the　program in a clean way.
+
+int	deal_key(int keycode, t_fdf *data_)
 {
-	if (keycode == 65307 )
+	if (keycode == 65307)
 		escape(data_);
 	if (keycode == 65362)
 		data_->z_zoom += 5;
@@ -43,30 +45,20 @@ int	deal_key(int keycode , t_fdf *data_)
 	return (0);
 }
 
-int	main()
+
+
+
+int	main(void)
 {
 	t_fdf		data_;
 
-	// dataの初期化 ---------------
 	init_data(&data_);
 	if (!validation_and_set_data("../test_maps/pyra.fdf", &data_))
 		return (1);
-
-	// mlx変数の初期化 ---------------
 	set_mlx_variable(&data_, data_.win_width, data_.win_height, "Hello world!");
-	
-	// 点をバッファに入れて出力する
 	draw(&data_);
-
-	
-	//　処理をloopさせる
 	mlx_key_hook(data_.window_ptr, deal_key, &data_);
-
-
-	//　イベントハンドラを待機しておく
 	mlx_loop(data_.mlx_ptr);
-	
-	// 掃除
 	vacuum_matrix(data_.matrix, &data_);
 	return (0);
 }
