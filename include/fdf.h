@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:59:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/02 15:30:22 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/02 17:15:57 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int	calc_isometric_y(int x, int y, int z);
 // utils_mlx
 void	draw(t_fdf *data_);
 void	escape(t_fdf *data_);
+void	hook_close(t_fdf *data_);
 
 
 #endif
