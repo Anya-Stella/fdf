@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 15:07:46 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/02 17:15:13 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/02 17:22:30 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static	int	deal_key(int keycode, t_fdf *data_)
 	return (0);
 }
 
-static	int deal_cross(t_fdf *data_)
+static	int	deal_cross(t_fdf *data_)
 {
 	escape(data_);
 	return (0);

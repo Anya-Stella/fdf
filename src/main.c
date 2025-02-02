@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/02 17:13:37 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/02 17:21:57 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@
 // 2: .fdfファイルを出力できる範囲はint_maxまで。
 // 3: .fdfファイルの配列に色情報が含まれるものは未定義。
 // ---------
-
-// • Clicking on the cross on the window’s frame must close the window and quit the　program in a clean way.
-
-
 
 int	main(void)
 {
