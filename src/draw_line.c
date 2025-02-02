@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:34:39 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/31 21:23:22 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/02 14:32:58 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *dat
     int z1  = zoom(data_->matrix[p1_->y][p1_->x], data_->z_zoom);
 	
     // 画面中央に移動 (オフセット加算)
-    int offsetX = (data_->win_width)/2;
+    int offsetX = (data_->win_width) / 2;
 	int offsetY = (data_->win_height - zoom(data_->height, data_->zoom)) / 2;
 	
     p0_->x = zoom(p0_->x, data_->zoom);
@@ -85,10 +85,10 @@ static void init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *dat
     p1_->y = zoom(p1_->y, data_->zoom);
 
 
-    line_->x0 = caluculate_isometric_x(p0_->x, p0_->y) + offsetX;
-    line_->y0 = caluculate_isometric_y(p0_->x, p0_->y, z0) + offsetY;
-    line_->x1 = caluculate_isometric_x(p1_->x, p1_->y) + offsetX;
-    line_->y1 = caluculate_isometric_y(p1_->x, p1_->y, z1) + offsetY;
+    line_->x0 = caluculate_isometric_x(p0_->x, p0_->y) + offsetX + data_->shift_x;
+    line_->y0 = caluculate_isometric_y(p0_->x, p0_->y, z0) + offsetY + data_->shift_y;
+    line_->x1 = caluculate_isometric_x(p1_->x, p1_->y) + offsetX + data_->shift_x;
+    line_->y1 = caluculate_isometric_y(p1_->x, p1_->y, z1) + offsetY + data_->shift_y;
 
     // 以下はブレゼンハム用の下準備
     line_->dx = abs(line_->x1 - line_->x0);
@@ -96,6 +96,11 @@ static void init_line_info(t_point *p0_, t_point *p1_, t_line *line_, t_fdf *dat
     line_->color = (z0 != 0 || z1 != 0) ? 0xffff00 : 0x00ffff;
 }
 
+//　imgのバッファを初期化
+static void init_screen(t_fdf	*data_)
+{
+	ft_bzero(data_->img_ptr, data_->win_width * data_->win_height * (data_->bpp / 8));
+}
 
 // 上記のブレゼンハムをポイント渡しに改良
 void	draw_line(t_point *p0_, t_point *p1_, t_fdf *data_)
@@ -129,6 +134,7 @@ void	draw_grid(t_fdf *data_)
 	int		x;
 	int		y;
 
+	init_screen(data_);
 	y = 0;
 	while (y < data_->height)
 	{

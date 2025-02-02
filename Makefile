@@ -6,7 +6,7 @@
 #    By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/15 15:01:07 by tishihar          #+#    #+#              #
-#    Updated: 2025/01/30 21:57:16 by tishihar         ###   ########.fr        #
+#    Updated: 2025/02/01 15:12:43 by tishihar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,7 @@ SRCS := \
 	draw_line.c \
 	utils.c \
 	test.c \
+	utils_mlx.c \
     main.c \
 
 # replace object (.c → .o)

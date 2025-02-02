@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 16:47:13 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/31 21:06:20 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/01 15:51:49 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ void	init_data(t_fdf *data_)
 
 	data_->win_width = 1920;
 	data_->win_height = 1080;
-	
+
+	data_->shift_x = 0;
+	data_->shift_y = 0;
+
 	data_->mlx_ptr = NULL;
 	data_->window_ptr = NULL;
 	data_->img = NULL;
@@ -57,7 +60,7 @@ bool	validation_and_set_data(char *file_name, t_fdf *data_)
 	return (true);
 }
 
-void	set_mlx(t_fdf *data_, int width, int height, char *title)
+void	set_mlx_variable(t_fdf *data_, int width, int height, char *title)
 {
 	data_->mlx_ptr = mlx_init();
 	data_->window_ptr = mlx_new_window(data_->mlx_ptr, width, height, title);

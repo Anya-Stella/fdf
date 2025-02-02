@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:59:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/31 20:59:38 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/01 16:31:33 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ typedef struct s_fdf
 
 	int win_width;
 	int win_height;
+
+	int	shift_x;
+	int	shift_y;
 
 	void	*mlx_ptr;
 	void	*window_ptr;
@@ -67,7 +70,7 @@ bool	set_width(char *file_name, int *width);
 bool	set_matrix(char *file_name, t_fdf *data_);
 bool	validation_and_set_data(char *file_name, t_fdf *data_);
 void	init_data(t_fdf *data_);
-void	set_mlx(t_fdf *data_, int width, int height, char *title);
+void	set_mlx_variable(t_fdf *data_, int width, int height, char *title);
 
 // draw
 void	draw_line(t_point *p0_, t_point *p1_, t_fdf *data_);
@@ -87,6 +90,10 @@ void	put_pixel(int x, int y, int color, t_fdf *data_);
 int	zoom(int value, int magnification);
 int	caluculate_isometric_x(int x, int y);
 int	caluculate_isometric_y(int x, int y, int z);
+
+// utils_mlx
+void	draw(t_fdf *data_);
+void	escape(t_fdf *data_);
 
 
 #endif
