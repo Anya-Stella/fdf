@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/02 15:12:49 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/02 15:49:09 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,6 @@ int	deal_key(int keycode, t_fdf *data_)
 	return (0);
 }
 
-
-
-
 int	main(void)
 {
 	t_fdf		data_;
@@ -62,7 +59,6 @@ int	main(void)
 	vacuum_matrix(data_.matrix, &data_);
 	return (0);
 }
-
 
 	// set_data("../test_maps/10-2.fdf", &data);
 	// set_data("../test_maps/100-6.fdf", &data);

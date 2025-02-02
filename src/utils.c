@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 19:41:36 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/02 15:30:22 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/02 15:48:29 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	put_pixel(int x, int y, int color, t_fdf *data_)
 	if (0 <= x && x < data_->win_width && 0 <= y && y < data_->win_height)
 		data_->img_ptr[y * data_->win_width + x] = color;
 }
-
 
 // 座標を定数倍するための関数
 int	zoom(int value, int magnification)
@@ -40,22 +39,23 @@ int	zoom(int value, int magnification)
 //  vy        vx
 // 
 //
-// みたいにする時のそれぞれの軸への単位ベクトルvx=(cosθ,sinθ)とvy=(-cosθ,sinθ)とvz=(0,1)をそれぞれの大きさぶんスカラー倍したものの合成ベクトルをかんがえればよい。
+// みたいにする時のそれぞれの軸への単位ベクトルvx=(cosθ,sinθ)とvy=(-cosθ,sinθ)とvz=(0,1)
+// をそれぞれの大きさぶんスカラー倍したものの合成ベクトルをかんがえればよい。
 
 // cos(π/6)＝１に近似
-int    calc_isometric_x(int x, int y)
+int	calc_isometric_x(int x, int y)
 {
-    double result;
+	double	result;
 
-    result = (x - y) * 1;// 0.8666
-    return  ((int)result);
+	result = (x - y) * 1;
+	return ((int)result);
 }
 
 // sin(π/6)＝0.5
-int    calc_isometric_y(int x, int y, int z)
+int	calc_isometric_y(int x, int y, int z)
 {
-    double result;
+	double	result;
 
-    result = (x + y) * 0.5 - z;
-    return  ((int)result);
+	result = (x + y) * 0.5 - z;
+	return ((int)result);
 }
