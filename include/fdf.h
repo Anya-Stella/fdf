@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:59:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/02 17:15:57 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:38:44 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "get_next_line.h"
 # include "mlx.h"
 # include <math.h>
+# include <stdbool.h>
 
 typedef struct s_fdf
 {
