@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:36:53 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/02 17:21:57 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:12:35 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,16 @@
 // 3: .fdfファイルの配列に色情報が含まれるものは未定義。
 // ---------
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	t_fdf		data_;
+	t_fdf	data_;
+	char	*map;
 
+	if (ac != 2)
+		return (1);
+	map = *(++av);
 	init_data(&data_);
-	if (!validation_and_set_data("../test_maps/42.fdf", &data_))
+	if (!validation_and_set_data(map, &data_))
 		return (1);
 	set_mlx_variable(&data_, data_.win_width, data_.win_height, "Hello world!");
 	draw(&data_);
