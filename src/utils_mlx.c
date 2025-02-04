@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 15:07:46 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/02 17:22:30 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/04 19:00:09 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	escape(t_fdf *data_)
 {
 	mlx_destroy_image(data_->mlx_ptr, data_->img);
 	mlx_destroy_window(data_->mlx_ptr, data_->window_ptr);
+	mlx_destroy_display(data_->mlx_ptr);
+	free(data_->mlx_ptr);
 	vacuum_matrix(data_->matrix, data_);
 	exit(0);
 }
