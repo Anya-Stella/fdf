@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 18:59:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/03 13:38:44 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/04 18:54:33 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@
 
 typedef struct s_fdf
 {
-	int	width;
-	int	height;
-	int	**matrix;
+	int		width;
+	int		height;
+	int		**matrix;
 
-	int zoom;
-	int	z_zoom;
+	int		zoom;
+	int		z_zoom;
 
-	int win_width;
-	int win_height;
+	int		win_width;
+	int		win_height;
 
-	int	shift_x;
-	int	shift_y;
+	int		shift_x;
+	int		shift_y;
 
 	void	*mlx_ptr;
 	void	*window_ptr;
@@ -43,27 +43,26 @@ typedef struct s_fdf
 	int		bpp;
 	int		size_l;
 	int		endian;
-} t_fdf;
+}	t_fdf;
 
 typedef struct s_point
 {
-	int x;
-	int y;
-} t_point;
+	int	x;
+	int	y;
+}	t_point;
 
 typedef struct s_line
 {
-	int x0;
-	int y0;
-	int x1;
-	int y1;
+	int	x0;
+	int	y0;
+	int	x1;
+	int	y1;
 
 	int	dx;
-	int dy;
+	int	dy;
 
-	int color;
-} t_line;
-
+	int	color;
+}	t_line;
 
 // init_data
 bool	set_height(char *file_name, int *height);
@@ -80,22 +79,18 @@ void	draw_grid(t_fdf *data_);
 // clean
 void	vacuum_matrix(int **matrix, t_fdf *data_);
 
-// main
-int	main();
-
 // test
 // void print_z(int **matrix, int height, int width);
 
 // utils
 void	put_pixel(int x, int y, int color, t_fdf *data_);
-int	zoom(int value, int magnification);
-int	calc_isometric_x(int x, int y);
-int	calc_isometric_y(int x, int y, int z);
+int		zoom(int value, int magnification);
+int		calc_isometric_x(int x, int y);
+int		calc_isometric_y(int x, int y, int z);
 
 // utils_mlx
 void	draw(t_fdf *data_);
 void	escape(t_fdf *data_);
 void	hook_close(t_fdf *data_);
-
 
 #endif

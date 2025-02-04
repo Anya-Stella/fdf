@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 14:00:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/01/16 12:25:48 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/04 18:50:23 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 // read時のフラグ
-#include <fcntl.h>
+# include <fcntl.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
